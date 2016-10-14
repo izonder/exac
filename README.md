@@ -93,7 +93,7 @@ npm install exac --save --production
 
 ## Documentation
 
-function exac(obj : Object, terminator = '$' : string) : Proxy
+`function exac(obj : Object, terminator = '$' : string) : Proxy`
 
 Params:
 
