@@ -1,0 +1,70 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "walmart/configurations/es6-node"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "filenames"
+  ],
+  "rules": {
+    //additional rules
+    "strict": [2, "never"],
+    "indent": [2, 4, {
+      "SwitchCase": 1
+    }],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "require-jsdoc": [2, {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": false
+      }
+    }],
+    "filenames/match-regex": [2, "^[a-z-.]+$"], //allows only kebab-like-names and names.with.parts, disallows camelCaseNames and snake_like_names
+    "filenames/match-exported": 0,
+    "filenames/no-index": 0,
+
+    //overridden
+    "max-len": [2, {
+      "code": 128,
+      "ignoreTrailingComments": true
+    }],
+    "comma-dangle": [2, "never"],
+    "no-cond-assign": [2, "always"],
+    "quotes": [2, "single"],
+    "one-var": [2, "always"],
+    "no-magic-numbers": [2, {
+      "ignore": [0, 1, 100, 1000],
+      "ignoreArrayIndexes": true
+    }],
+    "dot-notation": [2, {
+      "allowPattern": "^([a-z]+(_[a-z]+)+|[_A-Z0-9]+)$" //allows keys (e.g): under_score, UPPERCASE, 123, _0
+    }],
+    "no-trailing-spaces": [2, {
+      "skipBlankLines": true
+    }],
+    "no-multi-spaces": [2, {
+      "exceptions": {
+        "VariableDeclarator": true
+      }
+    }],
+
+    //change level
+    "brace-style": [1, "stroustrup"],
+    "no-console": 1,
+
+    //disable
+    "curly": 0,
+    "valid-jsdoc": 0,
+    "max-params": 0,
+    "prefer-const": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "exac",
+  "version": "1.0.0",
+  "description": "EXistential ACcessor polyfill",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izonder/exac.git"
+  },
+  "keywords": [
+    "existential operator",
+    "existential accessor",
+    "util"
+  ],
+  "author": {
+    "name": "Dmitry Morgachev",
+    "email": "izonder@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/izonder/exac/issues"
+  },
+  "homepage": "https://github.com/izonder/exac#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.6.1",
+    "eslint-config-walmart": "^1.0.1",
+    "eslint-plugin-filenames": "^1.1.0"
+  }
+}
