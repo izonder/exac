@@ -75,7 +75,7 @@ const exac = require('exac'),
       
 //...
 
-let v = config.aaa.ddd.zzz.kkk.$; // "$" at the end id mandatory - it's terminator
+let v = config.aaa.ddd.zzz.kkk.$; // "$" at the end is mandatory - it's terminator
 
 ```
 
@@ -110,7 +110,7 @@ We're looking forward for a native implementation in ES or at least in Babel/Bab
 
 ## Todo
 
-we need more tests!...
+We need more tests!...
 
 ## License
 

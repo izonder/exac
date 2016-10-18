@@ -1,14 +1,22 @@
 class ExistentialProxy {
     /**
      * Proxy wrapper for existential access
+     * @param terminator
+     */
+    constructor(terminator) {
+        this.terminator = terminator;
+    }
+
+    /**
+     * Override get method
      * @param target
      * @param name
      * @returns {Proxy|*}
      */
     get(target, name) {
-        return target.terminator === name ?
+        return this.terminator === name ?
             target.entity :
-            new Proxy(target.get(name), new ExistentialProxy());
+            new Proxy(target.get(name), this);
     }
 }
 
@@ -16,11 +24,9 @@ class ExistentialWrapper {
     /**
      * Lazy wrapper for proxied entities
      * @param entity
-     * @param terminator
      */
-    constructor(entity, terminator) {
+    constructor(entity) {
         this.entity = entity;
-        this.terminator = terminator;
     }
 
     /**
@@ -29,7 +35,7 @@ class ExistentialWrapper {
      * @returns {ExistentialWrapper}
      */
     get(key) {
-        return new ExistentialWrapper(this.contains(key, this.entity) ? this.entity[key] : undefined, this.terminator);
+        return new ExistentialWrapper(this.contains(key) ? this.entity[key] : undefined);
     }
 
     /**
@@ -60,5 +66,5 @@ const DEFAULT_GETTER = '$';
  * @returns {Proxy}
  */
 module.exports = function (entity, terminator = DEFAULT_GETTER) {
-    return new Proxy(new ExistentialWrapper(entity, terminator), new ExistentialProxy());
+    return new Proxy(new ExistentialWrapper(entity), new ExistentialProxy(terminator));
 };
